@@ -7,7 +7,7 @@ const ingredients = [
     'Приправы',
   ];
 
-const childNodes = [];
+const childNodes = []; 
 for(const i of ingredients){
     const li = document.createElement('li');
     li.textContent = i;
