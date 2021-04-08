@@ -16,8 +16,6 @@ const images = [
     },
   ];
 
-  const ul = document.querySelector("ul#gallery");
-  images.forEach(i => ul.insertAdjacentHTML('beforeend', `<li><img src="${i.url}" alt="${i.alt}"></img></li>`));
   const style =  document.querySelector("style");
   style.textContent += `
   .flexBox{
@@ -30,5 +28,13 @@ const images = [
     width: 320px;
     height: 240px;
   }`;
+
+  const listItems = images.map(i => {
+    const li = document.createElement('li');
+    li.insertAdjacentHTML('beforeend', `<img class="imageStyle" src="${i.url}" alt="${i.alt}"></img>`);
+    return li;
+  });
+  const ul = document.querySelector("ul#gallery");
   ul.classList.add('flexBox');
-  ul.querySelectorAll('img').forEach(i => i.classList.add('imageStyle'));
+  ul.append(...listItems);
+ 
