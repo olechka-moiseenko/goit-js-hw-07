@@ -7,12 +7,11 @@ const ingredients = [
     'Приправы',
   ];
 
-const childNodes = []; 
-for(const i of ingredients){
-    const li = document.createElement('li');
-    li.textContent = i;
-    childNodes.push(li);
-}
+const childNodes = ingredients.map(i => {
+  const li = document.createElement('li');
+  li.textContent = i;
+  return li;
+});
 const ul = document.querySelector('ul#ingredients');
 ul.append(...childNodes);
 
